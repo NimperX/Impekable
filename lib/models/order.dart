@@ -1,5 +1,3 @@
-import 'package:flutter/material.dart';
-
 class Item{
   int id;
   String image;
@@ -21,15 +19,32 @@ class AddOn{
 class Order{
   int orderId;
   List<OrderItem> items = [];
+  bool orderConfirmed = false;
+
+  clear(){
+    orderId = null;
+    items = [];
+    orderConfirmed = false;
+  }
 
   static Order order = new Order();
 }
 
 class OrderItem{
   int itemId;
+  String itemName;
   int quantity;
   int price;
   List<AddOn> selectedAddons = [];
   String note;
   String variance;
+}
+
+class User{
+  String firstName;
+  String lastName;
+  int phoneNo;
+  bool loggedIn;
+
+  static User user = new User();
 }

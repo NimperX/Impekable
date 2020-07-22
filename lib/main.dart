@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:impekable/screens/InitPage.dart';
 import 'package:impekable/screens/mainmenu.dart';
 import 'package:impekable/screens/signin.dart';
+import 'package:impekable/screens/signinCustomer.dart';
 import 'package:impekable/screens/splash.dart';
 
 void main() {
@@ -15,7 +16,8 @@ void main() {
           routes:{
             '/signin': (context) => SignIn(),
             '/initpage': (context) => InitPage(),
-            '/mainmenu': (context) => MainMenu()
+            '/mainmenu': (context) => MainMenu(),
+            '/signincustomer': (context) => SignInCustomer()
           }
         ));
       });

@@ -1,10 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:impekable/env.dart';
+import 'package:impekable/models/order.dart';
 
 class InitPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    User.user.loggedIn = false;
+    Order.order.clear();
     return Scaffold(
       body: Stack(
         children: <Widget>[
