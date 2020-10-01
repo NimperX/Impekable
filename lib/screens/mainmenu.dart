@@ -276,99 +276,127 @@ class _MainMenuState extends State<MainMenu> {
                                           .where((element) => element.category == tabs[i])
                                           .map((e){
                                         return Container(
-                                          padding: EdgeInsets.only(left: displayWidth(context)*22.0),
-                                          child: FlatButton(
-                                            padding: EdgeInsets.zero,
-                                            child: Stack(
-                                              overflow: Overflow.visible,
-                                              children: <Widget>[
-                                                Container(
-                                                  margin:EdgeInsets.symmetric(horizontal:displayWidth(context)*10.0,vertical: displayWidth(context)*15.0),
-                                                  decoration: BoxDecoration(
-                                                    borderRadius: BorderRadius.circular(displayWidth(context)*24.0),
-                                                    color: Colors.white,
-                                                    boxShadow: [
-                                                      BoxShadow(
-                                                        blurRadius: displayWidth(context)*20.0,
-                                                        color: Colors.black.withOpacity(0.2),
-                                                        spreadRadius: displayWidth(context)*7.0
-                                                      )
-                                                    ]
-                                                  ),
-                                                  child: Container(
-                                                    margin: EdgeInsets.only(top:displayHeight(context)*100.0,left: displayWidth(context)*12.0,right: displayWidth(context)*12.0,bottom: displayHeight(context)*12.0),
-                                                    child: Column(
-                                                      children: <Widget>[
-                                                        Text(
-                                                          e.name,
-                                                          style: TextStyle(
-                                                            fontFamily: 'Roboto',
-                                                            fontSize: 16,
-                                                            color: const Color(0xff365eff),
-                                                            fontWeight: FontWeight.w600
-                                                          ),
-                                                          textAlign: TextAlign.left,
-                                                        ),
-                                                        Text(
-                                                          e.desc.substring(0,e.desc.length < 49 ? e.desc.length : 49),
-                                                          style: TextStyle(
-                                                            fontFamily: 'Montserrat-Regular',
-                                                            fontSize: 11,
-                                                            color: const Color(0xff656565),
-                                                          ),
-                                                          textAlign: TextAlign.left,
-                                                        ),
-                                                        Align(
-                                                          child: Text(
-                                                            'Rs. ${e.price}.00',
-                                                            style: TextStyle(
-                                                              fontFamily: 'Montserrat-SemiBold',
-                                                              fontSize: 14,
-                                                              color: const Color(0xff656565),
-                                                              fontWeight: FontWeight.w600
-                                                            ),
-                                                          ),
-                                                          alignment: Alignment.centerRight,
-                                                        )
+                                          color: Color(0xdfe7e9),
+                                          padding: EdgeInsets.all(displayWidth(context)*22.0),
+                                            child: Container(
+                                              child:Container(
+                                                width:100.0,
+                                                height: 100.0,
+                                                decoration: BoxDecoration(
+                                                    gradient: LinearGradient(colors: [
+                                                        Color.fromRGBO(0, 0, 0, 0.09),
+                                                        Color.fromRGBO(0, 0, 0, 0.05)
                                                       ],
-                                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                                      stops: [0.3,0.6],
+                                                      begin: Alignment.topLeft,
+                                                      end: Alignment.bottomRight
                                                     ),
-                                                  ),
-                                                  height: displayHeight(context)*195.0,
-                                                  width: displayWidth(context)*170.0,
+                                                    borderRadius: BorderRadius.all(Radius.circular(50.0)),
                                                 ),
-                                                Positioned(
-                                                  top:0.0,
-                                                  child: Container(
-                                                    width: displayWidth(context)*100,
-                                                    height: displayWidth(context)*100,
-                                                    decoration: BoxDecoration(
-                                                      shape: BoxShape.circle,
-                                                      image: DecorationImage(
-                                                        image: NetworkImage(e.image),
-                                                        fit: BoxFit.cover,
-                                                      )
-                                                    ),
-                                                  ),
-                                                )
-                                              ],
-                                            ),
-                                            onPressed: () async {
-                                              await showDialog(
-                                                  context: context,
-                                                  builder: (BuildContext context) {
-                                                    return AlertDialog(
-                                                      content: ItemDialog(itemId: e.id,),
-                                                      contentPadding: EdgeInsets.symmetric(horizontal: 20.0,vertical: 10.0),
-                                                      shape: RoundedRectangleBorder(
-                                                        borderRadius: BorderRadius.circular(displayWidth(context)*15.0)
-                                                      ),
-                                                    );
-                                                  }
-                                              );
-                                              setState(() {});
-                                            },
-                                          ),
+                                              ),
+                                              width:100.0,
+                                              height: 100.0,
+                                              decoration: BoxDecoration(
+                                                color: Colors.white,
+                                                borderRadius: BorderRadius.all(Radius.circular(50.0)),
+                                                boxShadow: [
+                                                  BoxShadow(color: Colors.white70, blurRadius: 10.0, spreadRadius: 1.0, offset: Offset(5.0, 5.0)),
+                                                  BoxShadow(color: Colors.black12, blurRadius: 10.0, spreadRadius: 1.0, offset: Offset(5.0, 5.0))
+                                                ]
+                                              ),
+                                            )
+//                                          child: FlatButton(
+//                                            padding: EdgeInsets.zero,
+//                                            child: Stack(
+//                                              overflow: Overflow.visible,
+//                                              children: <Widget>[
+//                                                Container(
+//                                                  margin:EdgeInsets.symmetric(horizontal:displayWidth(context)*10.0,vertical: displayWidth(context)*15.0),
+//                                                  decoration: BoxDecoration(
+//                                                    borderRadius: BorderRadius.circular(displayWidth(context)*24.0),
+//                                                    color: Colors.white,
+//                                                    boxShadow: [
+//                                                      BoxShadow(
+//                                                        blurRadius: displayWidth(context)*20.0,
+//                                                        color: Colors.black.withOpacity(0.2),
+//                                                        spreadRadius: displayWidth(context)*7.0
+//                                                      )
+//                                                    ]
+//                                                  ),
+//                                                  child: Container(
+//                                                    margin: EdgeInsets.only(top:displayHeight(context)*100.0,left: displayWidth(context)*12.0,right: displayWidth(context)*12.0,bottom: displayHeight(context)*12.0),
+//                                                    child: Column(
+//                                                      children: <Widget>[
+//                                                        Text(
+//                                                          e.name,
+//                                                          style: TextStyle(
+//                                                            fontFamily: 'Roboto',
+//                                                            fontSize: 16,
+//                                                            color: const Color(0xff365eff),
+//                                                            fontWeight: FontWeight.w600
+//                                                          ),
+//                                                          textAlign: TextAlign.left,
+//                                                        ),
+//                                                        Text(
+//                                                          e.desc.substring(0,e.desc.length < 49 ? e.desc.length : 49),
+//                                                          style: TextStyle(
+//                                                            fontFamily: 'Montserrat-Regular',
+//                                                            fontSize: 11,
+//                                                            color: const Color(0xff656565),
+//                                                          ),
+//                                                          textAlign: TextAlign.left,
+//                                                        ),
+//                                                        Align(
+//                                                          child: Text(
+//                                                            'Rs. ${e.price}.00',
+//                                                            style: TextStyle(
+//                                                              fontFamily: 'Montserrat-SemiBold',
+//                                                              fontSize: 14,
+//                                                              color: const Color(0xff656565),
+//                                                              fontWeight: FontWeight.w600
+//                                                            ),
+//                                                          ),
+//                                                          alignment: Alignment.centerRight,
+//                                                        )
+//                                                      ],
+//                                                      crossAxisAlignment: CrossAxisAlignment.start,
+//                                                    ),
+//                                                  ),
+//                                                  height: displayHeight(context)*195.0,
+//                                                  width: displayWidth(context)*170.0,
+//                                                ),
+//                                                Positioned(
+//                                                  top:0.0,
+//                                                  child: Container(
+//                                                    width: displayWidth(context)*100,
+//                                                    height: displayWidth(context)*100,
+//                                                    decoration: BoxDecoration(
+//                                                      shape: BoxShape.circle,
+//                                                      image: DecorationImage(
+//                                                        image: NetworkImage(e.image),
+//                                                        fit: BoxFit.cover,
+//                                                      )
+//                                                    ),
+//                                                  ),
+//                                                )
+//                                              ],
+//                                            ),
+//                                            onPressed: () async {
+//                                              await showDialog(
+//                                                  context: context,
+//                                                  builder: (BuildContext context) {
+//                                                    return AlertDialog(
+//                                                      content: ItemDialog(itemId: e.id,),
+//                                                      contentPadding: EdgeInsets.symmetric(horizontal: 20.0,vertical: 10.0),
+//                                                      shape: RoundedRectangleBorder(
+//                                                        borderRadius: BorderRadius.circular(displayWidth(context)*15.0)
+//                                                      ),
+//                                                    );
+//                                                  }
+//                                              );
+//                                              setState(() {});
+//                                            },
+//                                          ),
                                         );
                                       }).toList()
                                   ),

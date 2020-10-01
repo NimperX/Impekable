@@ -1,6 +1,6 @@
 # impekable
 
-Impekable
+This project is mainly focused on automatic menu system for hotels. Can be adapted to any hotel. This is the frontend and backrend is calibrated with firebase.
 
 ## Getting Started
 
